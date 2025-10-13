@@ -1,4 +1,7 @@
-use std::{collections::BTreeMap, path::PathBuf};
+use std::{
+    collections::BTreeMap,
+    path::{Path, PathBuf},
+};
 
 use dialoguer::{theme::ColorfulTheme, Select};
 use file_tree_utils::{find_files_by_name, FileTree, FileTreeError};
@@ -62,7 +65,10 @@ pub fn choose_web_app(
 pub fn find_web_app_manifests(
     app_file_tree: &FileTree,
 ) -> Result<BTreeMap<PathBuf, WebAppManifest>, Error> {
-    let files = find_files_by_name(app_file_tree, &WebAppManifest::path());
+    let files = find_files_by_name(
+        app_file_tree,
+        &PathBuf::from(WebAppManifest::file_name()),
+    );
 
     let manifests: BTreeMap<PathBuf, WebAppManifest> = files
         .into_iter()
@@ -114,7 +120,7 @@ pub fn choose_app(
 pub fn find_app_manifests(
     app_file_tree: &FileTree,
 ) -> Result<BTreeMap<PathBuf, AppManifest>, Error> {
-    let files = find_files_by_name(app_file_tree, &AppManifest::path());
+    let files = find_files_by_name(app_file_tree, &PathBuf::from(AppManifest::file_name()));
 
     let manifests: BTreeMap<PathBuf, AppManifest> = files
         .into_iter()

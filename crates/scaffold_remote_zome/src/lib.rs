@@ -4,7 +4,7 @@ use file_tree_utils::{
     find_files_by_extension, find_files_by_name, insert_file, map_all_files, map_file, FileTree, FileTreeError
 };
 use holochain_types::prelude::{
-    DnaManifest, DnaManifestCurrentBuilder, ZomeDependency, ZomeLocation,
+    DnaManifest, DnaManifestCurrentBuilder, ZomeDependency, 
 };
 use nix_scaffolding_utils::{add_flake_input, NixScaffoldingUtilsError};
 use npm_scaffolding_utils::{
@@ -360,7 +360,7 @@ fn add_zome_to_nixified_dna(
     let dna_manifest: DnaManifest = serde_yaml::from_str(nixified_dna.dna_manifest.1.as_str())?;
 
     let (mut integrity_manifest, mut coordinator_manifest) = match dna_manifest.clone() {
-        DnaManifest::V1(m) => (m.integrity, m.coordinator),
+        DnaManifest::V0(m) => (m.integrity, m.coordinator),
     };
     if let Some(integrity_zome) = integrity_zome_name.clone() {
         integrity_manifest
@@ -368,9 +368,8 @@ fn add_zome_to_nixified_dna(
             .push(holochain_types::prelude::ZomeManifest {
                 name: integrity_zome.into(),
                 hash: None,
-                location: ZomeLocation::Bundled(PathBuf::from("<NIX_PACKAGE>")),
+                path: String::from("<NIX_PACKAGE>"),
                 dependencies: None,
-                dylib: None,
             });
     }
     if let Some(coordinator_zome) = coordinator_zome_name.clone() {
@@ -379,11 +378,10 @@ fn add_zome_to_nixified_dna(
             .push(holochain_types::prelude::ZomeManifest {
                 name: coordinator_zome.into(),
                 hash: None,
-                location: ZomeLocation::Bundled(PathBuf::from("<NIX_PACKAGE>")),
+                path: String::from("<NIX_PACKAGE>"),
                 dependencies: integrity_zome_name
                     .clone()
                     .map(|name| vec![ZomeDependency { name: name.into() }]),
-                dylib: None,
             });
     }
 
