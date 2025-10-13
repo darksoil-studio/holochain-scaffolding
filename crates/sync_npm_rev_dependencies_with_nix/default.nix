@@ -4,7 +4,8 @@
   perSystem = { inputs', pkgs, self', system, lib, ... }: {
 
     packages.sync-npm-rev-dependencies-with-nix = let
-      craneLib = inputs.crane.mkLib pkgs;
+      craneLib = (inputs.crane.mkLib pkgs).overrideToolchain
+        inputs'.holonix.packages.rust;
 
       cratePath = ./.;
 
