@@ -23,7 +23,7 @@
       };
       cargoArtifacts = craneLib.buildDepsOnly (commonArgs // {
         pname = crate;
-        version = "0.5.x";
+        version = "0.6.x";
       });
     in craneLib.buildPackage (commonArgs // {
       pname = crate;

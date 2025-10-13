@@ -6,8 +6,8 @@
 
     holonix.url = "github:holochain/holonix";
     scaffolding.url = "path:../../..";
-    profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.5";
-    file-storage.url = "github:darksoil-studio/file-storage/main-0.5";
+    profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.6";
+    file-storage.url = "github:darksoil-studio/file-storage/main-0.6";
   };
 
   outputs = inputs@{ ... }:

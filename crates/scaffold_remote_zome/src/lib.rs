@@ -538,7 +538,7 @@ mod tests {
             Some("profiles_integrity".into()),
             Some("profiles".into()),
             "github:darksoil-studio/profiles-zome".into(),
-            Some("main-0.5".into()),
+            Some("main-0.6".into()),
             "@darksoil-studio/profiles-zome".into(),
             None,
             Some("package1".into()),
@@ -592,11 +592,11 @@ lineage: []
   description = "Template for Holochain app development";
   
   inputs = {
-    profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.5";
+    profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.6";
     nixpkgs.follows = "holonix/nixpkgs";
 
     holonix.url = "github:holochain/holonix";
-    scaffolding.url = "github:darksoil-studio/scaffolding/main-0.5";
+    scaffolding.url = "github:darksoil-studio/scaffolding/main-0.6";
   };
 
   outputs = inputs @ { ... }:
@@ -703,7 +703,7 @@ export class App {
             Some("profiles_integrity".into()),
             Some("profiles".into()),
             "github:darksoil-studio/profiles-zome".into(),
-            Some("main-0.5".into()),
+            Some("main-0.6".into()),
             "@darksoil-studio/profiles-zome".into(),
             None,
             None,
@@ -757,11 +757,11 @@ lineage: []
   description = "Template for Holochain app development";
   
   inputs = {
-    profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.5";
+    profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.6";
     nixpkgs.follows = "holonix/nixpkgs";
 
     holonix.url = "github:holochain/holonix";
-    holochain-nix-builders.url = "github:darksoil-studio/holochain-nix-builders/main-0.5";
+    holochain-nix-builders.url = "github:darksoil-studio/holochain-nix-builders/main-0.6";
   };
 
   outputs = inputs @ { ... }:
@@ -882,7 +882,7 @@ lineage: []
     nixpkgs.follows = "holonix/nixpkgs";
 
     holonix.url = "github:holochain/holonix";
-    scaffolding.url = "github:darksoil-studio/scaffolding/main-0.5";
+    scaffolding.url = "github:darksoil-studio/scaffolding/main-0.6";
   };
 
   outputs = inputs @ { ... }:

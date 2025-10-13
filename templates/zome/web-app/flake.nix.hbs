@@ -2,17 +2,17 @@
   description = "Template for Holochain app development";
 
   inputs = {
-    holonix.url = "github:holochain/holonix/main-0.5";
+    holonix.url = "github:holochain/holonix/main";
 
     nixpkgs.follows = "holonix/nixpkgs";
     flake-parts.follows = "holonix/flake-parts";
 
-    holochain-nix-builders.url = "github:darksoil-studio/holochain-nix-builders/main-0.5";
-    scaffolding.url = "github:darksoil-studio/scaffolding/main-0.5";
-    playground.url = "github:darksoil-studio/holochain-playground/main-0.5";
-    tauri-plugin-holochain.url = "github:darksoil-studio/tauri-plugin-holochain/main-0.5";
+    holochain-nix-builders.url = "github:darksoil-studio/holochain-nix-builders/main-0.6";
+    scaffolding.url = "github:darksoil-studio/scaffolding/main-0.6";
+    playground.url = "github:darksoil-studio/holochain-playground/main-0.6";
+    tauri-plugin-holochain.url = "github:darksoil-studio/tauri-plugin-holochain/main-0.6";
 
-    profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.5";
+    profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.6";
   };
 
   nixConfig = {
@@ -74,7 +74,7 @@
                     --coordinator-zome-name {{snake_case app_name}} \
                     --remote-zome-git-url github:darksoil-studio/{{kebab_case app_name}}-zome \
                     --remote-npm-package-name @darksoil-studio/{{kebab_case app_name}}-zome \
-                    --remote-zome-git-branch main-0.5 \
+                    --remote-zome-git-branch main-0.6 \
                     --context-element {{kebab_case app_name}}-context \
                     --context-element-import @{{npm_organization}}/{{kebab_case app_name}}-zome/dist/elements/{{kebab_case app_name}}-context.js" 
                   " 
